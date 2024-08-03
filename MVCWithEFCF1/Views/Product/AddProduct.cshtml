@@ -1,0 +1,17 @@
+﻿@model MVCWithEFCF1.Models.Product
+@{
+    ViewBag.Title = "AddProduct";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Add New Product</h2>
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(P => P.ProductName)<br />@Html.TextBoxFor(P => P.ProductName)</div>
+    <div>@Html.LabelFor(P => P.UnitPrice)<br />@Html.TextBoxFor(P => P.UnitPrice)</div>
+    <div>@Html.LabelFor(P => P.ProductImage)<br /><input type="file" name="selectedFile" /></div>
+    <div>@Html.Label("Category Name")<br />@Html.DropDownList("CategoryId", "-Select Category-")</div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" />
+    </div>
+}
+@Html.ActionLink("Back to Product Details", "DisplayProducts")

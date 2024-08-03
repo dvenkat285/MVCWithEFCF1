@@ -1,0 +1,22 @@
+﻿@model MVCWithEFCF1.Models.Category
+@{
+    ViewBag.Title = "AddCategory";
+}
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Add New Category</h2>
+@using (Html.BeginForm("AddCategory", "Category"))
+{
+    <div>
+        @Html.LabelFor(C => C.CategoryName)<br />
+        @Html.TextBoxFor(C => C.CategoryName)
+    </div>
+    <div>
+        @Html.LabelFor(C => C.Description)<br />
+        @Html.TextAreaFor(C => C.Description)
+    </div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        <input type="reset" value="Reset" name="btnReset" />
+    </div>
+}
+@Html.ActionLink("Back to Category Details", "DisplayCategories")

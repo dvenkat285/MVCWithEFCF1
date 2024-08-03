@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MVCWithEFCF1.Models.Category>
+@{
+    ViewBag.Title = "DisplayCategories";
+}
+
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Categories List</h2>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(C => C.CategoryId)</th>
+        <th>@Html.DisplayNameFor(C => C.CategoryName)</th>
+        <th>@Html.DisplayNameFor(C => C.Description)</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var Category in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(C => Category.CategoryId)</td>
+            <td>@Html.DisplayFor(C => Category.CategoryName)</td>
+            <td>@Html.DisplayFor(C => Category.Description)</td>
+            <td>
+                @Html.ActionLink("Edit", "EditCategory", new { CategoryId = Category.CategoryId })
+                @Html.ActionLink("Delete", "DeleteCategory", new { CategoryId = Category.CategoryId },
+    new { onclick = "return confirm('Are you sure of deleting the record?')" })
+            </td>
+        </tr>
+    }
+    <tr><td colspan="4" align="center">@Html.ActionLink("Add New Category", "AddCategory")</td></tr>
+</table>

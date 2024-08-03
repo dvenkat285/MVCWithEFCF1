@@ -1,0 +1,20 @@
+﻿@model MVCWithEFCF1.Models.Product
+
+@{
+    ViewBag.Title = "DisplayProduct";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Display Product</h2>
+<table border="1" align="center">
+    <tr>
+        <td rowspan=7>
+            <img src='~/Uploads/@Model.ProductImageName' width="200" height="200" alt="No Image" />
+        </td>
+        <td>ProductId: @Model.Id</td>
+    </tr>
+    <tr><td>ProductName: @Model.ProductName</td></tr>
+    <tr><td>UnitPrice: @Model.UnitPrice</td></tr>
+    <tr><td>CategoryId: @Model.CategoryId</td></tr>
+    <tr><td>CategoryName: @Model.Category.CategoryName</td></tr>
+    <tr><td>Description: @Model.Category.Description</td></tr>
+    <tr><td colspan="2" align="center">@Html.ActionLink("Back to Product Details", "DisplayProducts")</td></tr>
+</table>

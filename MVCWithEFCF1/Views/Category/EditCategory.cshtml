@@ -1,0 +1,24 @@
+﻿@model MVCWithEFCF1.Models.Category
+@{
+    ViewBag.Title = "EditCategory";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Update Category</h2>
+@using (Html.BeginForm("UpdateCategory", "Category"))
+{
+    <div>
+        @Html.LabelFor(C => C.CategoryId)<br />
+        @Html.TextBoxFor(C => C.CategoryId, new { @readonly = "true" })
+    </div>
+    <div>
+        @Html.LabelFor(C => C.CategoryName)<br />
+        @Html.TextBoxFor(C => C.CategoryName)
+    </div>
+    <div>
+        @Html.LabelFor(C => C.Description)<br />
+        @Html.TextAreaFor(C => C.Description)
+    </div>
+    <div>
+        <input type="submit" value="Save" name="btnSave" />
+        @Html.ActionLink("Cancel", "DisplayCategories")
+    </div>
+}

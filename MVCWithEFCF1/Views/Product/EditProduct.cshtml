@@ -1,0 +1,22 @@
+﻿@model MVCWithEFCF1.Models.Product
+@{
+    ViewBag.Title = "EditProduct";
+}
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">Update Product</h2>
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(P => P.Id)<br />@Html.TextBoxFor(P => P.Id, new { @readonly = "true" })</div>
+    <div>@Html.LabelFor(P => P.ProductName)<br />@Html.TextBoxFor(P => P.ProductName)</div>
+    <div>@Html.LabelFor(P => P.UnitPrice)<br />@Html.TextBoxFor(P => P.UnitPrice)</div>
+    <div>
+        @Html.LabelFor(P => P.ProductImage)<br />
+        <img src='/Uploads/@Model.ProductImageName' width="100" height="100" /><br />
+        <input type="file" name="selectedFile" />
+    </div>
+    <div>@Html.LabelFor(P => P.CategoryId)<br />@Html.DropDownList("CategoryId")</div>
+    <div>
+        <input type="submit" value="Update" name="btnUpdate" />
+        @Html.ActionLink("Cancel", "DisplayProducts")
+    </div>
+}
+
